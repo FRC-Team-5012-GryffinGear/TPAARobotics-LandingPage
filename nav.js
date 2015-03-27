@@ -1,46 +1,18 @@
-$(function() {
-    // Stick the #nav to the top of the window
-    var nav = $('#nav');
-    var navHomeY = nav.offset().top;
-    var isFixed = false;
-    var $w = $(window);
-    $w.scroll(function() {
-        var scrollTop = $w.scrollTop();
-        var shouldBeFixed = scrollTop > navHomeY;
-        if (shouldBeFixed && !isFixed) {
-            nav.css({
-                position: 'fixed',
-                top: 0,
-                left: nav.offset().left,
-                width: nav.width()
-            });
-            isFixed = true;
-        }
-        else if (!shouldBeFixed && isFixed)
-        {
-            nav.css({
-                position: 'static'
-            });
-            isFixed = false;
-        }
-    });
-});
+jQuery(document).ready(function() {
+    var navOffset = jQuery(".nav").offset().top;
 
-var scrollTop = $w.scrollTop();
-        var shouldBeFixed = scrollTop > navHomeY;
-        if (shouldBeFixed && !isFixed) {
-            nav.css({
-                position: 'fixed',
-                top: 0,
-                left: nav.offset().left,
-                width: nav.width()
-            });
-            isFixed = true;
+    jQuery(".nav").wrap('<div class="nav-placeholder"></div>');
+    jQuery(".nav-placeholder").height(jQuery(".nav").outerHeight);
+
+    jQuery(window).scroll(function() {
+        var scrollPos = jQuery(window).scrollTop();
+
+        if(scrollPos >= navOffset) {
+            jQuery(".nav").addClass("fixed")
         }
-        else if (!shouldBeFixed && isFixed)
-        {
-            nav.css({
-                position: 'static'
-            });
-            isFixed = false;
+
+        else {
+            jQuery(".nav").removeClass("fixed")
         }
+    }); 
+});

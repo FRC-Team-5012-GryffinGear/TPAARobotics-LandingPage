@@ -3,13 +3,16 @@
 <head>
 	<title>TPAA Robotics</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="nav.js"></script>
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="nav.js"></script>
 </head>
 
 <body>
 
 	<!-- Start Header -->
 	<div class="header">
+		<img src="images/logo1.png">
+
 		<div class="nav">
 			<ul class="nul">
 				<a href="http://www.tpaarobotics.com/"><li>Home</li></a>
@@ -17,19 +20,13 @@
 				<a href="Calendar.html"><li>Calendar</li></a>
 				<a href="ContactUs.html"><li>Contact Us</li></a>
 			</ul>
+			<div class="mobilenav">&#9776; Menu</div>
 		</div>
-
-		<div id="navWrap">
-            <div id="nav">
-                <ul>
-                    <li><a href="#" class="smoothScroll">Demo Link 1</a></li>
-                    <li><a href="#" class="smoothScroll">Demo Link 2</a></li>
-                    <li><a href="#" class="smoothScroll">Demo Link 3</a></li>
-                    <li><a href="#" class="smoothScroll">Demo Link 4</a></li>
-                </ul>    
-                <br class="clearLeft" />
-            </div>
-        </div>
+		<script>
+			$('.mobilenav').on('click', function() {
+				$('.nul').toggleClass('showing');
+			});
+		</script>
 	</div> <!-- End Header -->
 
 	<!-- Start Content -->
