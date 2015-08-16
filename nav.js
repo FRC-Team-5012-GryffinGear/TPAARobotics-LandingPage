@@ -9,10 +9,12 @@ jQuery(document).ready(function() {
 
         if(scrollPos >= navOffset) {
             jQuery(".nav").addClass("fixed")
+            $(".navimage").show();
         }
 
         else {
             jQuery(".nav").removeClass("fixed")
+            $(".navimage").hide();
         }
     }); 
 });
